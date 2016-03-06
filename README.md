@@ -14,6 +14,8 @@ npm install --save-dev extend-script-loader
 
 ## Usage
 
+__Note:__ Examples use ES6 syntax on the CEP side. Use babel or similar to transpile.
+
 You'll need to add extend-script-loader to the list of loaders within your webpack configuration like so:
 
 ```javascript
