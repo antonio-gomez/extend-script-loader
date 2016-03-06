@@ -1,6 +1,6 @@
 {
   "name": "extend-script-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This package allows for easy execution of ExtendScript files directly from a CEP panel.",
   "main": "index.js",
   "repository": {
