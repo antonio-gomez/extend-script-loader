@@ -127,7 +127,7 @@ sendObj((err, result) => {
 });
 ```
 
-## Passing and receiving data inside CEP.
+### Passing and receiving data inside CEP.
 
 You can pass as many parameters as desired to the script. The callback will always be added as the last parameter.
 
