@@ -22,7 +22,7 @@ You'll need to add extend-script-loader to the list of loaders within your webpa
 module: {
   loaders: [
     {
-      test: /\.es?$/,
+      test: /\.es?$/, // js or jsx will also work if preferred.
       exclude: /(node_modules|bower_components)/,
       loader: 'extend-script', // 'extend-script-loader' is also a legal name to reference
     }
@@ -173,6 +173,16 @@ throwException((err, result) => {
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
+
+## Todos
+
+* Auto include CSInterface.js in CEP panel.
+* Ability to import multiple functions from ES script:
+
+  ```javascript
+  // app.js
+  import { functionA, functionB } from './multiple-functions.es'
+  ```
 
 ## History
 
