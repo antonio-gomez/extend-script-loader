@@ -1,7 +1,10 @@
 # extend-script-loader
 
-This package allows for easy execution of ExtendScript files directly from a CEP panel.
+This package allows for easy execution of ExtendScript (ES) files directly from a Adobe Common Extensibility Platform (CEP) panel.
 
+## Why
+
+The process for setting up bi-directional communication between CEP and ES is a bit tedious to work with. This improves that process by allowing you to simply import your ES code and run it directly from the presentation layer. We also get free hot reloading on ES files when used with Hot Module Reloading (HMR).
 
 ## Installation
 
@@ -35,7 +38,7 @@ Make sure CSInterface is loaded in the CEP panel.
 </html>
 ```
 
-Then write your ExtendScript inside of an Immediately-Invoked Function Expression (IIFE):
+Then write your ES inside of an Immediately-Invoked Function Expression (IIFE):
 
 ```javascript
 // hello-world.es
@@ -77,10 +80,10 @@ Return a function inside the script that will accept parameters passed from CEP:
 // app.js
 import sendNumber from './send-number.es'
 
-sendNumber();
+sendNumber(Math.random() * 100);
 ```
 
-### Receiving data from ExtendScript
+### Receiving data from ES
 
 Return a value inside the script that will be passed to CEP:
 
@@ -95,10 +98,10 @@ Return a value inside the script that will be passed to CEP:
 
 ```javascript
 // app.js
-import sendNumber from './send-number.es'
+import receiveNumber from './send-number.es'
 
-sendNumber((err, result) => {
-  console.log('Number from ExtendScript: ' + result);
+receiveNumber((err, result) => {
+  console.log('Number from ES: ' + result);
 });
 ```
 
@@ -117,8 +120,8 @@ __Note:__ You can return any JSON parseable data (including objects and arrays).
 // app.js
 import sendObj from './send-object.es'
 
-sendNumber((err, result) => {
-  console.log('Object from ExtendScript: ', result);
+sendObj((err, result) => {
+  console.log('Object from ES: ', result);
 });
 ```
 
@@ -137,7 +140,7 @@ scriptWithManyParameters('foo', 'bar', (err, result) => {
 
 ## Exceptions
 
-Currently, when any exception is thrown inside of an ExtendScript file it is caught and the error object is passed back to the CEP invocator's callback and also logged in the CEP console. This is because ExtendScript Toolkit is too slow and painful to work with and I've found it faster to just check the error's message and line number and then fix it in my text editor of choice. A configuration/query parameter to "unwrap" the try/catch to disable this could be added later if needed.
+Currently, when any exception is thrown inside of an ES file it is caught and the error object is passed back to the CEP invocator's callback and also logged in the CEP console. This is because ExtendScript Toolkit is too slow and painful to work with and I've found it faster to just check the error's message and line number and then fix it in my text editor of choice. A configuration/query parameter to "unwrap" the try/catch to disable this could be added later if needed.
 
 ```javascript
 // throw-exception.es
