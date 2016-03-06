@@ -90,7 +90,7 @@ sendNumber(Math.random() * 100);
 Return a value inside the script that will be passed to CEP:
 
 ```javascript
-// send-number.es
+// receive-number.es
 (function() {
   return function() {
     return Math.random() * 100
@@ -100,7 +100,7 @@ Return a value inside the script that will be passed to CEP:
 
 ```javascript
 // app.js
-import receiveNumber from './send-number.es'
+import receiveNumber from './receive-number.es'
 
 receiveNumber((err, result) => {
   console.log('Number from ES: ' + result);
