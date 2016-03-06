@@ -1,0 +1,15 @@
+{
+  "name": "extend-script-loader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "loader-utils": "^0.2.12"
+  },
+  "author": "Michael Delaney <michael@fusepilot.com> (http://fusepilot.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.2.2"
+  }
+}
