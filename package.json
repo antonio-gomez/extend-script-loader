@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "This package allows for easy execution of ExtendScript files directly from a CEP panel.",
   "main": "index.js",
+  "repository": {
+   "type": "git",
+   "url": "http://github.com/fusepilot/extend-script-loader.git"
+ },
   "dependencies": {
     "loader-utils": "^0.2.12"
   },
