@@ -3,32 +3,33 @@ const path = require('path')
 
 function ExtendScriptPlugin(options) {}
 
+function readFile(file) {
+  return fs.readFileSync(path.join(__dirname, file)).toString()
+}
+
 ExtendScriptPlugin.prototype.apply = function(compiler) {
   compiler.plugin('emit', function(compilation, callback) {
 
-    var interface = fs.readFileSync(path.join(__dirname, './lib/CSInterface.js'))
-    var json = fs.readFileSync(path.join(__dirname, './lib/JSON.es'))
-
     compilation.assets['interface.es'] = {
       source: function() {
-        return interface.toString();
+        return readFile('lib/CSInterface.js')
       },
       size: function() {
-        return 1;
+        return 1
       }
-    };
+    }
 
     compilation.assets['json.es'] = {
       source: function() {
-        return json.toString();
+        return readFile('lib/JSON.es')
       },
       size: function() {
-        return 1;
+        return 1
       }
-    };
+    }
 
-    callback();
-  });
-};
+    callback()
+  })
+}
 
-module.exports = ExtendScriptPlugin;
+module.exports = ExtendScriptPlugin

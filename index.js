@@ -8,6 +8,8 @@ module.exports = function(content) {
 
   var exportedFunction =
 `module.exports = function() {
+
+  console.log('exportedFunction');
   var args = Array.prototype.slice.call(arguments);
 
   var callback;
@@ -28,16 +30,20 @@ module.exports = function(content) {
     throw Error("[extend-script-loader]: CSInterface not found. Are you sure it's included?")
   }
 
-  cs.evalScript(\`(function() {
-    try {
-      var result = eval(unescape("${scriptEscaped}"));
-      if (typeof result === 'function') result = result.apply(this, \${argsStringified});
-      result = JSON.stringify({result: result});
-      return result;
-    } catch (err) {
-      return JSON.stringify({error: err});
-    };
-  })()\`, function(result) {
+  cs.evalScript(\`
+this.module = {exports: {}};
+(function() {
+  try {
+    var result = eval(unescape("${scriptEscaped}"));
+    // if (typeof result === 'function') result = result.apply(this, \${argsStringified});
+    result = JSON.stringify({result: result});
+    return result;
+  } catch (err) {
+    return JSON.stringify({error: err});
+  };
+})()\`,
+  function(result) {
+    console.log('result', result);
     result = JSON.parse(result);
 
     if (result.error) {
