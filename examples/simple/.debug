@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ExtensionList>
+  <Extension Id="com.extend-script-loader.simple.panel">
+    <HostList>
+      <Host Name="AEFT" Port="3001"></Host>
+    </HostList>
+  </Extension>
+</ExtensionList>

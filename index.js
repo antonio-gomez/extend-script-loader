@@ -15,7 +15,7 @@ module.exports = function(content) {
     callback = args[args.length - 1];
   }
 
-  args.splice(-1,1); // remove callback
+  if (args.length > 1) args.splice(-1,1); // remove callback
 
   var argsStringified = JSON.stringify(args);
 

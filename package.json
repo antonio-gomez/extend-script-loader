@@ -1,19 +1,27 @@
 {
   "name": "extend-script-loader",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "This package allows for easy execution of ExtendScript files directly from a CEP panel.",
   "main": "index.js",
   "repository": {
-   "type": "git",
-   "url": "http://github.com/fusepilot/extend-script-loader.git"
- },
+    "type": "git",
+    "url": "http://github.com/fusepilot/extend-script-loader.git"
+  },
   "dependencies": {
     "loader-utils": "^0.2.12"
+  },
+  "scripts": {
+    "dev:simple": "cd examples/simple && gulp"
   },
   "author": "Michael Delaney <michael@fusepilot.com> (http://fusepilot.com)",
   "license": "MIT",
   "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-util": "^3.0.7",
     "mocha": "^2.4.5",
-    "should": "^8.2.2"
+    "should": "^8.2.2",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   }
 }

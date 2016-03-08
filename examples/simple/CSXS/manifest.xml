@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ExtensionManifest ExtensionBundleId="com.extend-script-loader.simple" ExtensionBundleName="Extend Script Loader Simple" ExtensionBundleVersion="1.0.0" Version="6.0">
+  <ExtensionList>
+    <Extension Id="com.extend-script-loader.simple.panel" Version="1.4"></Extension>
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="AEFT" Version="[13.0,15.9]"></Host>
+    </HostList>
+    <LocaleList>
+      <Locale Code="All"></Locale>
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="6.0"></RequiredRuntime>
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.extend-script-loader.simple.panel">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./extension.html</MainPath>
+          <CEFCommandLine>
+            <Parameter>--allow-file-access-from-files</Parameter>
+            <Parameter>--allow-file-access</Parameter>
+            <Parameter>--enable-nodejs</Parameter>
+            <Parameter>--mixed-context</Parameter>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>Extend Script Loader Simple</Menu>
+          <Geometry>
+            <Size>
+              <Height>400</Height>
+              <Width>400</Width>
+            </Size>
+          </Geometry>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>
